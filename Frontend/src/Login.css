@@ -1,0 +1,135 @@
+.start
+{
+    margin-top: 0px;
+    background-color: #02314b;
+    height: 100vh;
+    width: 100%;
+    color: #02314b;
+    text-align: center;
+    overflow: hidden;
+}
+
+#logo
+{
+    border-radius: 50%;
+    height: 20vmin;
+    width: 20vmin;
+    margin-top: 10vh;
+    animation: pop 1s;
+}
+
+#txt
+{
+    font-size: 6vh;
+    color: whitesmoke;
+}
+
+@keyframes pop {
+    0%
+    {
+        margin-top: 10vh;
+        height: 0vmin;
+        width: 0vmin;
+    }
+    80%
+    {
+        margin-top: 10vh;
+        height: 24vmin;
+        width: 24vmin;
+    }
+    90%
+    {
+        margin-top: 10vh;
+        height: 18vmin;
+        width: 18vmin;
+    }
+    100%
+    {
+        margin-top: 10vh;
+        height: 20vmin;
+        width: 20vmin;
+    }
+}
+
+.box
+{
+    margin: 2vh auto;
+    background-color: whitesmoke;
+    height: 42vh;
+    width: 50vh;
+    border-radius: 10px;
+    font-family: Helvetica;
+    text-align: center;
+    padding: 0vh 2vh;
+    animation: late 2s;
+}
+
+@keyframes late {
+    0%
+    {
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.login
+{
+    height: 30vh;
+    width: 46vh;
+    text-align: left;
+    padding: 3vh;
+
+}
+
+#invalid
+{
+    color: red;
+}
+
+#tag
+{
+    padding-top: 2vmin;
+}
+
+#in
+{
+    width: 100%;
+    height: 5vh;
+    padding: 10px;
+}
+
+.btndiv
+{
+    padding: 2vh 3vh;
+}
+
+#btn1
+{
+    float: left;
+    background-color: #02314b;
+    color: whitesmoke;
+    border: none;
+    height: 5vh;
+    width: 15vh;
+    font-size: 2vh;
+    border-radius: 5px;
+}
+
+#btn2
+{
+    float: right;
+    background-color: #02314b;
+    color: whitesmoke;
+    border: none;
+    height: 5vh;
+    width: 10vh;
+    font-size: 2vh;
+    border-radius: 5px;
+}
