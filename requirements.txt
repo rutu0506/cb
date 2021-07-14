@@ -3,3 +3,5 @@ pymongo
 chatterbot
 gunicorn
 flask-CORS
+spacy
+dnspython
