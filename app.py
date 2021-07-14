@@ -8,7 +8,6 @@ from flask_cors import CORS, cross_origin
 from chatterbot import ChatBot
 #for training chatbot from given list
 from chatterbot.trainers import ListTrainer
-from werkzeug.utils import send_from_directory
 
 #api for routes
 app = Flask('__name__')
