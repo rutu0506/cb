@@ -1,0 +1,5 @@
+flask
+pymongo
+chatterbot
+gunicorn
+flask-CORS
