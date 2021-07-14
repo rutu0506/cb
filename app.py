@@ -11,7 +11,7 @@ from chatterbot.trainers import ListTrainer
 from werkzeug.utils import send_from_directory
 
 #api for routes
-app = Flask('__name__',static_folder='Frontend/build')
+app = Flask('__name__')
 
 # expose all resources matching /api/* to
 # CORS and allows the Content-Type header, which is necessary to POST JSON
@@ -52,11 +52,6 @@ for intent in findQuery:
 #train bot with list of content in collection
 trainer = ListTrainer(my_bot)
 trainer.train(queries)
-
-@app.route('/')
-@cross_origin()
-def index():
-    return send_from_directory(app.static_folder,'index.html')
 
 #route for bot responses according to query
 @app.route('/user', methods=['POST'])
