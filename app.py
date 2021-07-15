@@ -21,7 +21,7 @@ my_bot = ChatBot(name='Bot', read_only=True,
         logic_adapters = [
                             {
                                 'import_path': 'chatterbot.logic.BestMatch',
-                                'default_response': 'I am sorry, I do not understand. I am still learning. Please contact abc@db.com for further assistance.',
+                                'default_response': 'I am sorry, I do not understand. I am still learning. For further assistance Click https://www.db.com/contact',
                                 'maximum_similarity_threshold': 0.90
                             }
                          ],
@@ -59,7 +59,7 @@ def hello():
 def user():
     jsonObj = request.json
     data = jsonObj['msg']
-    return str(my_bot.get_response(str(data).lower()))
+    return str(my_bot.get_response(data))
 
 #route for updating database and train bot accordingly
 @app.route('/admin', methods=['POST'])
