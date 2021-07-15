@@ -1,9 +1,9 @@
 #for using mongodb in python
 import pymongo
-#for api on POST methodim
+#for api on POST method
 from flask import Flask, request
 #for Cross Origin Resouce Sharing
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 #for chatbot language processing, responses
 from chatterbot import ChatBot
 #for training chatbot from given list
@@ -15,9 +15,7 @@ app = Flask('__name__')
 # expose all resources matching /api/* to
 # CORS and allows the Content-Type header, which is necessary to POST JSON
 # cross origin.
-CORS(app, resources={r"/api/*": {'origins': '*'}})
-
-app.config['CORS HEARDERS'] = 'Content-Type'
+CORS(app)
 
 my_bot = ChatBot(name='Bot', read_only=True,
         logic_adapters = [
@@ -52,18 +50,19 @@ for intent in findQuery:
 trainer = ListTrainer(my_bot)
 trainer.train(queries)
 
+@app.route('/', methods=['GET'])
+def hello():
+    return 'hello'
+
 #route for bot responses according to query
 @app.route('/user', methods=['POST'])
-@cross_origin()
 def user():
     jsonObj = request.json
     data = jsonObj['msg']
-    return str(my_bot.get_response(data))
-
+    return str(my_bot.get_response(str(data).lower()))
 
 #route for updating database and train bot accordingly
 @app.route('/admin', methods=['POST'])
-@cross_origin()
 def admin():
     obj = request.json
     patterns = obj['patterns']
@@ -77,4 +76,6 @@ def admin():
     return 'done'
 
 #run flask for api to run on pc ip address (host='0.0.0.0')
-app.run(host='0.0.0.0')
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", threaded=True, port=5000)
+    
